@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem2.QueueTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2022-02-26T23:53:11" hostname="jiangruxuedeMacBook-Pro.local" time="0.03">
+  <properties/>
+  <testcase name="testEquals_NullObject()" classname="problem2.QueueTest" time="0.001"/>
+  <testcase name="emptyQueue()" classname="problem2.QueueTest" time="0.001"/>
+  <testcase name="testToString()" classname="problem2.QueueTest" time="0.001"/>
+  <testcase name="remove()" classname="problem2.QueueTest" time="0.001"/>
+  <testcase name="contains()" classname="problem2.QueueTest" time="0.0"/>
+  <testcase name="testEquals_SameObject()" classname="problem2.QueueTest" time="0.011"/>
+  <testcase name="removeElement()" classname="problem2.QueueTest" time="0.0"/>
+  <testcase name="add()" classname="problem2.QueueTest" time="0.0"/>
+  <testcase name="size()" classname="problem2.QueueTest" time="0.0"/>
+  <testcase name="testEquals_DifferentObject()" classname="problem2.QueueTest" time="0.003"/>
+  <testcase name="testHashCode()" classname="problem2.QueueTest" time="0.0"/>
+  <testcase name="isEmpty()" classname="problem2.QueueTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

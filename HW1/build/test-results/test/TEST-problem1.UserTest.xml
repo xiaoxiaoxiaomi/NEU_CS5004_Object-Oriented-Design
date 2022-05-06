@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem1.UserTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2022-01-31T22:05:45" hostname="jiangruxuedeMacBook-Pro.local" time="0.015">
+  <properties/>
+  <testcase name="setCredentials()" classname="problem1.UserTest" time="0.001"/>
+  <testcase name="getPhoneNumber()" classname="problem1.UserTest" time="0.0"/>
+  <testcase name="getCredentials()" classname="problem1.UserTest" time="0.001"/>
+  <testcase name="getFirstName()" classname="problem1.UserTest" time="0.001"/>
+  <testcase name="setLastName()" classname="problem1.UserTest" time="0.0"/>
+  <testcase name="getLastName()" classname="problem1.UserTest" time="0.002"/>
+  <testcase name="setPhoneNumber()" classname="problem1.UserTest" time="0.001"/>
+  <testcase name="setEmail()" classname="problem1.UserTest" time="0.001"/>
+  <testcase name="setFirstName()" classname="problem1.UserTest" time="0.0"/>
+  <testcase name="getEmail()" classname="problem1.UserTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

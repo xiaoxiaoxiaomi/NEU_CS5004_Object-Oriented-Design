@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NumberValidator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW7</a> &gt; <a href="index.source.html" class="el_package">problem</a> &gt; <span class="el_source">NumberValidator.java</span></div><h1>NumberValidator.java</h1><pre class="source lang-java linenums">package problem;
+
+import static java.lang.Double.NEGATIVE_INFINITY;
+import static java.lang.Double.POSITIVE_INFINITY;
+
+import java.util.Objects;
+
+/**
+ * Class NumberValidator determines if the input meets the number requirements. The purpose of the
+ * validator is to check that text entered by a user can be converted to the appropriate numeric
+ * format.
+ */
+public class NumberValidator extends Validator&lt;String&gt; {
+
+<span class="fc" id="L15">  private static final Double DEFAULT_MIN_VALUE = NEGATIVE_INFINITY;</span>
+<span class="fc" id="L16">  private static final Double DEFAULT_MAX_VALUE = POSITIVE_INFINITY;</span>
+<span class="fc" id="L17">  private static final Integer DEFAULT_MAX_DECIMAL_PLACES = 6;</span>
+<span class="fc" id="L18">  private static final Integer MIN_MAX_DECIMAL_PLACES = 0;</span>
+  private Double minValue;
+  private Double maxValue;
+  private Integer maxDecimalPlaces;
+
+  /**
+   * Default constructor of Class NumberValidator.
+   */
+<span class="fc" id="L26">  public NumberValidator() {</span>
+<span class="fc" id="L27">    this.minValue = DEFAULT_MIN_VALUE;</span>
+<span class="fc" id="L28">    this.maxValue = DEFAULT_MAX_VALUE;</span>
+<span class="fc" id="L29">    this.maxDecimalPlaces = DEFAULT_MAX_DECIMAL_PLACES;</span>
+<span class="fc" id="L30">  }</span>
+
+  /**
+   * Constructor of Class NumberValidator.
+   *
+   * @param minValue         - minimum value, encoded as Double
+   * @param maxValue         - maximum value, encoded as Double
+   * @param maxDecimalPlaces - maximum number of decimal places allowed
+   */
+<span class="fc" id="L39">  public NumberValidator(Double minValue, Double maxValue, Integer maxDecimalPlaces) {</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">    if (maxValue &lt; minValue) {</span>
+<span class="fc" id="L41">      throw new IllegalArgumentException(&quot;Maximum value should be at least minimum value&quot;);</span>
+    }
+<span class="fc bfc" id="L43" title="All 2 branches covered.">    if (maxDecimalPlaces &lt; MIN_MAX_DECIMAL_PLACES) {</span>
+<span class="fc" id="L44">      throw new IllegalArgumentException(&quot;Maximum number of decimal places should be at least 0&quot;);</span>
+    }
+<span class="fc" id="L46">    this.minValue = minValue;</span>
+<span class="fc" id="L47">    this.maxValue = maxValue;</span>
+<span class="fc" id="L48">    this.maxDecimalPlaces = maxDecimalPlaces;</span>
+<span class="fc" id="L49">  }</span>
+
+  /**
+   * Getter for minimum value
+   *
+   * @return minimum value
+   */
+  public Double getMinValue() {
+<span class="fc" id="L57">    return minValue;</span>
+  }
+
+  /**
+   * Getter for maximum value
+   *
+   * @return maximum value
+   */
+  public Double getMaxValue() {
+<span class="fc" id="L66">    return maxValue;</span>
+  }
+
+  /**
+   * Getter for maximum number of decimal places
+   *
+   * @return maximum number of decimal places
+   */
+  public Integer getMaxDecimalPlaces() {
+<span class="fc" id="L75">    return maxDecimalPlaces;</span>
+  }
+
+  /**
+   * Return true if the input is between the minimum value and maximum value, and the number of
+   * decimal places is not larger than maximum number of decimal places allowed.
+   *
+   * @param input - input data, should be String
+   * @return true if the input meets the number requirements, otherwise return false
+   */
+  @Override
+  public boolean isValid(String input) {
+    // check if the input is numeric
+<span class="fc bfc" id="L88" title="All 4 branches covered.">    if (input == null || !input.matches(&quot;-?\\d+(\\.\\d+)?&quot;)) {</span>
+<span class="fc" id="L89">      return false;</span>
+    }
+    // if there is a dot, it should be a Double
+<span class="fc bfc" id="L92" title="All 2 branches covered.">    if (input.contains(&quot;.&quot;)) {</span>
+<span class="fc" id="L93">      String[] array = input.split(&quot;\\.&quot;);</span>
+      // check whether the number of decimal places is not larger than maximum number of decimal places allowed
+<span class="fc bfc" id="L95" title="All 2 branches covered.">      if (array[1].length() &gt; this.maxDecimalPlaces) {</span>
+<span class="fc" id="L96">        return false;</span>
+      }
+    }
+<span class="fc" id="L99">    Double number = Double.valueOf(input);</span>
+    // check if the number is between the minimum value and maximum value
+<span class="fc bfc" id="L101" title="All 4 branches covered.">    return number &gt;= this.minValue &amp;&amp; number &lt;= this.maxValue;</span>
+  }
+
+  /**
+   * Indicates whether some other object is &quot;equal to&quot; this one.
+   *
+   * @param o - the reference object with which to compare.
+   * @return true if this object is the same as the obj argument; false otherwise.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L112" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L113">      return true;</span>
+    }
+<span class="fc bfc" id="L115" title="All 4 branches covered.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L116">      return false;</span>
+    }
+<span class="fc" id="L118">    NumberValidator that = (NumberValidator) o;</span>
+<span class="fc bfc" id="L119" title="All 4 branches covered.">    return Objects.equals(minValue, that.minValue) &amp;&amp; Objects.equals(maxValue,</span>
+<span class="fc bfc" id="L120" title="All 2 branches covered.">        that.maxValue) &amp;&amp; Objects.equals(maxDecimalPlaces, that.maxDecimalPlaces);</span>
+  }
+
+  /**
+   * Returns a hash code value for the object.
+   *
+   * @return a hash code value for this object.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L130">    return Objects.hash(minValue, maxValue, maxDecimalPlaces);</span>
+  }
+
+  /**
+   * Returns a string representation of the object.
+   *
+   * @return a string representation of the object.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L140">    return &quot;NumberValidator{&quot; +</span>
+        &quot;minValue=&quot; + minValue +
+        &quot;, maxValue=&quot; + maxValue +
+        &quot;, maxDecimalPlaces=&quot; + maxDecimalPlaces +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

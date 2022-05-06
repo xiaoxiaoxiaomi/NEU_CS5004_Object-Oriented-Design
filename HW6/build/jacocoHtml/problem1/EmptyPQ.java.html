@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EmptyPQ.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW6</a> &gt; <a href="index.source.html" class="el_package">problem1</a> &gt; <span class="el_source">EmptyPQ.java</span></div><h1>EmptyPQ.java</h1><pre class="source lang-java linenums">package problem1;
+
+/**
+ * Represents an empty priority queue
+ */
+<span class="fc" id="L6">public class EmptyPQ implements PriorityQueue {</span>
+
+  private static final int HASH_CODE = 123;
+
+  /**
+   * Checks if PQ is empty
+   *
+   * @return true
+   */
+  @Override
+  public Boolean isEmpty() {
+<span class="fc" id="L17">    return true;</span>
+  }
+
+  /**
+   * Adds the given element (the priority and its associated value) to the PQ
+   *
+   * @param priority - a priority, encoded as an Integer
+   * @param value    - a value associated with the priority, in our case the value will be a String
+   * @return a copy of the PQ with the given element
+   */
+  @Override
+  public PriorityQueue add(Integer priority, String value) {
+<span class="fc" id="L29">    return new ConsPQ(priority, value, this);</span>
+  }
+
+  /**
+   *  Throw an exception when calling peek() on an empty PQ
+   */
+  @Override
+  public String peek() {
+<span class="fc" id="L37">    throw new IllegalQueueOperationException(&quot;Calling peek on an empty PQ&quot;);</span>
+  }
+
+  /**
+   * Throw an exception when calling pop() on an empty PQ
+   */
+  @Override
+  public PriorityQueue pop() {
+<span class="fc" id="L45">    throw new IllegalQueueOperationException(&quot;Calling pop on an empty PQ&quot;);</span>
+  }
+
+  /**
+   * Indicates whether some other object is &quot;equal to&quot; this one.
+   *
+   * @param obj - the reference object with which to compare.
+   * @return true if this object is the same as the obj argument; false otherwise.
+   */
+  @Override
+  public boolean equals(Object obj) {
+<span class="fc bfc" id="L56" title="All 2 branches covered.">    if (this == obj) {</span>
+<span class="fc" id="L57">      return true;</span>
+    }
+<span class="fc bfc" id="L59" title="All 2 branches covered.">    if (obj == null) {</span>
+<span class="fc" id="L60">      return false;</span>
+    }
+<span class="fc" id="L62">    return obj instanceof EmptyPQ;</span>
+  }
+
+  /**
+   * Returns a hash code value for the object.
+   *
+   * @return a hash code value for this object.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L72">    return EmptyPQ.HASH_CODE;</span>
+  }
+
+  /**
+   * Returns a string representation of the object.
+   *
+   * @return a string representation of the object.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L82">    return &quot;EmptyPQ{}&quot;;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

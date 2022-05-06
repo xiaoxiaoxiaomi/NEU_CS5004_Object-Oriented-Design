@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Band.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW5</a> &gt; <a href="index.source.html" class="el_package">problem2</a> &gt; <span class="el_source">Band.java</span></div><h1>Band.java</h1><pre class="source lang-java linenums">package problem2;
+
+import java.util.HashSet;
+import java.util.Objects;
+
+/**
+ * Class Band inherits Group and stores a name and a collection of RecordingArtists, the Band’s
+ * members
+ */
+public class Band extends Group {
+
+  private String name;
+  private HashSet&lt;RecordingArtist&gt; members;
+
+  /**
+   * Constructor for class Band
+   *
+   * @param name    - name, encoded as String
+   * @param members - the Band's members, encoded as a set of RecordingArtists
+   */
+<span class="fc" id="L21">  public Band(String name, HashSet&lt;RecordingArtist&gt; members) {</span>
+<span class="fc" id="L22">    this.name = name;</span>
+<span class="fc" id="L23">    this.members = members;</span>
+<span class="fc" id="L24">  }</span>
+
+  /**
+   * Getter for name
+   *
+   * @return name, encoded as String
+   */
+  public String getName() {
+<span class="fc" id="L32">    return name;</span>
+  }
+
+  /**
+   * Getter for the Band's members
+   *
+   * @return the Band's members, encoded as a set of RecordingArtists
+   */
+  public HashSet&lt;RecordingArtist&gt; getMembers() {
+<span class="fc" id="L41">    return members;</span>
+  }
+
+  /**
+   * Judge if the band's members contain the artist
+   * @param artist - artist, encoded as RecordingArtist
+   * @return true if the artist is in the band, otherwise return false
+   */
+  @Override
+  public Boolean containsArtist(RecordingArtist artist) {
+<span class="fc" id="L51">    return this.getMembers().contains(artist);</span>
+  }
+
+  /**
+   * Indicates whether some other object is &quot;equal to&quot; this one.
+   *
+   * @param o - the reference object with which to compare.
+   * @return true if this object is the same as the obj argument; false otherwise.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L62" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L63">      return true;</span>
+    }
+<span class="fc bfc" id="L65" title="All 4 branches covered.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L66">      return false;</span>
+    }
+<span class="fc" id="L68">    Band band = (Band) o;</span>
+<span class="fc bfc" id="L69" title="All 4 branches covered.">    return Objects.equals(name, band.name) &amp;&amp; Objects.equals(members,</span>
+        band.members);
+  }
+
+  /**
+   * Returns a hash code value for the object.
+   *
+   * @return a hash code value for this object.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L80">    return Objects.hash(name, members);</span>
+  }
+
+  /**
+   * Returns a string representation of the object.
+   *
+   * @return a string representation of the object.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L90">    return &quot;Band{&quot; +</span>
+        &quot;name='&quot; + name + '\'' +
+        &quot;, members=&quot; + members +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

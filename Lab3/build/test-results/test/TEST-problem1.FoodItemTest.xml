@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem1.FoodItemTest" tests="25" skipped="0" failures="0" errors="0" timestamp="2022-02-14T18:52:30" hostname="jiangruxuedeMacBook-Pro.local" time="0.136">
+  <properties/>
+  <testcase name="testEquals_OtherRiceObject_DifferentQuantity()" classname="problem1.FoodItemTest" time="0.059"/>
+  <testcase name="getCurrentPrice()" classname="problem1.FoodItemTest" time="0.006"/>
+  <testcase name="testEquals_NullObject()" classname="problem1.FoodItemTest" time="0.001"/>
+  <testcase name="testToString()" classname="problem1.FoodItemTest" time="0.001"/>
+  <testcase name="testEquals_SameObjectRice()" classname="problem1.FoodItemTest" time="0.002"/>
+  <testcase name="testEquals_OtherRiceObject_DifferentMaxQuantity()" classname="problem1.FoodItemTest" time="0.0"/>
+  <testcase name="testToString_NonPerishable()" classname="problem1.FoodItemTest" time="0.003"/>
+  <testcase name="testEquals_DifferentExpirationDate()" classname="problem1.FoodItemTest" time="0.001"/>
+  <testcase name="testEquals_SameObject()" classname="problem1.FoodItemTest" time="0.0"/>
+  <testcase name="getName()" classname="problem1.FoodItemTest" time="0.001"/>
+  <testcase name="testEquals_DifferentMaxQuantity()" classname="problem1.FoodItemTest" time="0.001"/>
+  <testcase name="testHashCode_Perishable()" classname="problem1.FoodItemTest" time="0.007"/>
+  <testcase name="testEquals_NullObjectRice()" classname="problem1.FoodItemTest" time="0.001"/>
+  <testcase name="testEquals_DifferentObject()" classname="problem1.FoodItemTest" time="0.001"/>
+  <testcase name="testEquals_OtherRiceObject_DifferentPrice()" classname="problem1.FoodItemTest" time="0.001"/>
+  <testcase name="getCurrentQuantity()" classname="problem1.FoodItemTest" time="0.004"/>
+  <testcase name="testEquals_DifferentOrderDate()" classname="problem1.FoodItemTest" time="0.001"/>
+  <testcase name="testEquals_DifferentObjectRice()" classname="problem1.FoodItemTest" time="0.001"/>
+  <testcase name="testGetOrderDate()" classname="problem1.FoodItemTest" time="0.01"/>
+  <testcase name="testHashCode()" classname="problem1.FoodItemTest" time="0.001"/>
+  <testcase name="testGetExpirationDate()" classname="problem1.FoodItemTest" time="0.002"/>
+  <testcase name="testEquals_OtherRiceObject()" classname="problem1.FoodItemTest" time="0.0"/>
+  <testcase name="testEquals_DifferentObjectsSameAttributes()" classname="problem1.FoodItemTest" time="0.001"/>
+  <testcase name="getMaxAllowedQuantity()" classname="problem1.FoodItemTest" time="0.001"/>
+  <testcase name="testEquals_OtherRiceObject_DifferentName()" classname="problem1.FoodItemTest" time="0.002"/>
+  <system-out><![CDATA[My hashcode is: -2058222840
+My hashcode is: -230160143
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

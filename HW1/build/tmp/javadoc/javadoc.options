@@ -1,0 +1,13 @@
+-classpath '/Users/jiangruxue/Github/CS5004/Student_repo_Ruxue_Jiang/HW1/build/classes/java/main:/Users/jiangruxue/Github/CS5004/Student_repo_Ruxue_Jiang/HW1/build/resources/main'
+-d '/Users/jiangruxue/Github/CS5004/Student_repo_Ruxue_Jiang/HW1/build/docs/javadoc'
+-doctitle 'HW1 1.0-SNAPSHOT API'
+-notimestamp 
+-quiet 
+-windowtitle 'HW1 1.0-SNAPSHOT API'
+'/Users/jiangruxue/Github/CS5004/Student_repo_Ruxue_Jiang/HW1/src/main/java/problem1/Credentials.java'
+'/Users/jiangruxue/Github/CS5004/Student_repo_Ruxue_Jiang/HW1/src/main/java/problem1/User.java'
+'/Users/jiangruxue/Github/CS5004/Student_repo_Ruxue_Jiang/HW1/src/main/java/problem2/Time.java'
+'/Users/jiangruxue/Github/CS5004/Student_repo_Ruxue_Jiang/HW1/src/main/java/problem2/Delivery.java'
+'/Users/jiangruxue/Github/CS5004/Student_repo_Ruxue_Jiang/HW1/src/main/java/problem3/Identifier.java'
+'/Users/jiangruxue/Github/CS5004/Student_repo_Ruxue_Jiang/HW1/src/main/java/problem3/Amount.java'
+'/Users/jiangruxue/Github/CS5004/Student_repo_Ruxue_Jiang/HW1/src/main/java/problem3/Account.java'

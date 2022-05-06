@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem2.DeliveryTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2022-01-31T22:05:45" hostname="jiangruxuedeMacBook-Pro.local" time="0.019">
+  <properties/>
+  <testcase name="getStartTime()" classname="problem2.DeliveryTest" time="0.004"/>
+  <testcase name="setEndLocation()" classname="problem2.DeliveryTest" time="0.001"/>
+  <testcase name="setStartLocation()" classname="problem2.DeliveryTest" time="0.0"/>
+  <testcase name="setStartTime()" classname="problem2.DeliveryTest" time="0.0"/>
+  <testcase name="getEndTime()" classname="problem2.DeliveryTest" time="0.0"/>
+  <testcase name="getEndLocation()" classname="problem2.DeliveryTest" time="0.0"/>
+  <testcase name="getDuration()" classname="problem2.DeliveryTest" time="0.0"/>
+  <testcase name="getStartLocation()" classname="problem2.DeliveryTest" time="0.0"/>
+  <testcase name="setEndTime()" classname="problem2.DeliveryTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

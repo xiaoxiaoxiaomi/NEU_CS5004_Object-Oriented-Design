@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Catalog.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW5</a> &gt; <a href="index.source.html" class="el_package">problem2</a> &gt; <span class="el_source">Catalog.java</span></div><h1>Catalog.java</h1><pre class="source lang-java linenums">package problem2;
+
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
+
+/**
+ * Class Catalog stores a collection of all the items in the library
+ */
+public class Catalog {
+
+  private ArrayList&lt;Item&gt; itemList;
+
+  /**
+   * Default constructor for class Catalog
+   */
+<span class="fc" id="L18">  public Catalog() {</span>
+<span class="fc" id="L19">    this.itemList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L20">  }</span>
+
+  /**
+   * Constructor for class Catalog which instantiates a Catalog specifying the items in the
+   * collection
+   *
+   * @param itemList - a collection of all the items in the library, encoded as ArrayList
+   */
+<span class="fc" id="L28">  public Catalog(ArrayList&lt;Item&gt; itemList) {</span>
+<span class="fc" id="L29">    this.itemList = itemList;</span>
+<span class="fc" id="L30">  }</span>
+
+  /**
+   * Add item to the collection
+   *
+   * @param item - item, encoded as Item
+   */
+  public void add(Item item) {
+<span class="fc" id="L38">    this.itemList.add(item);</span>
+<span class="fc" id="L39">  }</span>
+
+  /**
+   * Remove item from the collection
+   *
+   * @param item - item, encoded as Item
+   */
+  public void remove(Item item) {
+<span class="fc" id="L47">    itemList.remove(item);</span>
+<span class="fc" id="L48">  }</span>
+
+  /**
+   * Retrieve all items in the catalog, regardless of type, that have a title containing the
+   * keyword
+   *
+   * @param keyword - keyword, encoded as String
+   * @return list of items that have a title containing the keyword
+   */
+  public ArrayList&lt;Item&gt; search(String keyword) {
+<span class="fc" id="L58">    ArrayList&lt;Item&gt; ans = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">    for (Item item : this.itemList) {</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">      if (item.getTitle().toLowerCase().contains(keyword.toLowerCase())) {</span>
+<span class="fc" id="L61">        ans.add(item);</span>
+      }
+<span class="fc" id="L63">    }</span>
+<span class="fc" id="L64">    return ans;</span>
+  }
+
+  /**
+   * Retrieve all items in the catalog that have an exact match for the given author.
+   *
+   * @param author - author, encoded as Author
+   * @return list of items in the catalog that have an exact match for the given author.
+   */
+  public ArrayList&lt;Item&gt; search(Author author) {
+<span class="fc" id="L74">    ArrayList&lt;Item&gt; ans = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">    for (Item item : this.itemList) {</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">      if (item.getCreator() == author) {</span>
+<span class="fc" id="L77">        ans.add(item);</span>
+      }
+<span class="fc" id="L79">    }</span>
+<span class="fc" id="L80">    return ans;</span>
+  }
+
+  /**
+   * Retrieve all items in the catalog that have an exact match for the given artist.
+   *
+   * @param artist - artist, encoded as Artist
+   * @return list of items in the catalog that have an exact match for the given artist.
+   */
+  public ArrayList&lt;Item&gt; search(RecordingArtist artist) {
+<span class="fc" id="L90">    ArrayList&lt;Item&gt; ans = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L91" title="All 2 branches covered.">    for (Item item : this.itemList) {</span>
+<span class="fc bfc" id="L92" title="All 2 branches covered.">      if (item.getCreator().containsArtist(artist)) {</span>
+<span class="fc" id="L93">        ans.add(item);</span>
+      }
+<span class="fc" id="L95">    }</span>
+<span class="fc" id="L96">    return ans;</span>
+  }
+
+  /**
+   * Indicates whether some other object is &quot;equal to&quot; this one.
+   *
+   * @param o - the reference object with which to compare.
+   * @return true if this object is the same as the obj argument; false otherwise.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L107" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L108">      return true;</span>
+    }
+<span class="fc bfc" id="L110" title="All 4 branches covered.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L111">      return false;</span>
+    }
+<span class="fc" id="L113">    Catalog catalog = (Catalog) o;</span>
+<span class="fc" id="L114">    Map&lt;Item, Long&gt; map1 = itemList.stream()</span>
+<span class="fc" id="L115">        .collect(Collectors.groupingBy(p -&gt; p, Collectors.counting()));</span>
+<span class="fc" id="L116">    Map&lt;Item, Long&gt; map2 = catalog.itemList.stream()</span>
+<span class="fc" id="L117">        .collect(Collectors.groupingBy(p -&gt; p, Collectors.counting()));</span>
+<span class="fc" id="L118">    return map1.equals(map2);</span>
+  }
+
+  /**
+   * Returns a hash code value for the object.
+   *
+   * @return a hash code value for this object.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L128">    return Objects.hash(itemList.stream()</span>
+<span class="fc" id="L129">        .collect(Collectors.groupingBy(p -&gt; p, Collectors.counting())));</span>
+  }
+
+  /**
+   * Returns a string representation of the object.
+   *
+   * @return a string representation of the object.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L139">    return &quot;Catalog{&quot; +</span>
+        &quot;itemList=&quot; + itemList +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

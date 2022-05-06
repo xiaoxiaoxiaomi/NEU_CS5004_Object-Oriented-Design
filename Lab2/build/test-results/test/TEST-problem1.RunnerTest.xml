@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem1.RunnerTest" tests="20" skipped="0" failures="0" errors="0" timestamp="2022-02-02T23:06:07" hostname="jiangruxuedeMacBook-Pro.local" time="0.083">
+  <properties/>
+  <testcase name="testEquals_DifferentVenue()" classname="problem1.RunnerTest" time="0.008"/>
+  <testcase name="setBestHalfMarathonTime()" classname="problem1.RunnerTest" time="0.005"/>
+  <testcase name="testEquals_NullObject()" classname="problem1.RunnerTest" time="0.001"/>
+  <testcase name="testEquals_SameMemoryLocation()" classname="problem1.RunnerTest" time="0.001"/>
+  <testcase name="testToString()" classname="problem1.RunnerTest" time="0.001"/>
+  <testcase name="testEquals_DifferentInheritedFields()" classname="problem1.RunnerTest" time="0.0"/>
+  <testcase name="testEquals_Different5KTime()" classname="problem1.RunnerTest" time="0.0"/>
+  <testcase name="setFavoriteRunningEvent()" classname="problem1.RunnerTest" time="0.004"/>
+  <testcase name="getBest5KTime()" classname="problem1.RunnerTest" time="0.004"/>
+  <testcase name="getHeight()" classname="problem1.RunnerTest" time="0.001"/>
+  <testcase name="setBest5KTime()" classname="problem1.RunnerTest" time="0.001"/>
+  <testcase name="testEquals_DifferentDataTypes()" classname="problem1.RunnerTest" time="0.002"/>
+  <testcase name="getLeague()" classname="problem1.RunnerTest" time="0.001"/>
+  <testcase name="getBestHalfMarathonTime()" classname="problem1.RunnerTest" time="0.0"/>
+  <testcase name="testHashCode()" classname="problem1.RunnerTest" time="0.0"/>
+  <testcase name="getAthletesName()" classname="problem1.RunnerTest" time="0.001"/>
+  <testcase name="getWeight()" classname="problem1.RunnerTest" time="0.002"/>
+  <testcase name="testEquals_SameFieldsOverall()" classname="problem1.RunnerTest" time="0.0"/>
+  <testcase name="testEquals_DifferentHalfMarathonTime()" classname="problem1.RunnerTest" time="0.001"/>
+  <testcase name="getFavoriteRunningEvent()" classname="problem1.RunnerTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

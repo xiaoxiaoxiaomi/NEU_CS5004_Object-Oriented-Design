@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Locker.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW2</a> &gt; <a href="index.source.html" class="el_package">problem2</a> &gt; <span class="el_source">Locker.java</span></div><h1>Locker.java</h1><pre class="source lang-java linenums">package problem2;
+
+/**
+ * Class Locker stores information about locker - maximum width, maximum height, maximum depth and
+ * mail item
+ */
+public class Locker {
+
+  private final Integer maximumWidth;
+  private final Integer maximumHeight;
+  private final Integer maximumDepth;
+  private MailItem mailItem;
+
+  /**
+   * Constructor for the class Locker
+   *
+   * @param maximumWidth  - maximum width in inches, an integer greater than or equal to 1
+   * @param maximumHeight - maximum height in inches, an integer greater than or equal to 1
+   * @param maximumDepth  - maximum depth in inches, an integer greater than or equal to 1
+   * @throws DimensionNumericException On non-positive number of dimension
+   */
+  public Locker(Integer maximumWidth, Integer maximumHeight, Integer maximumDepth)
+<span class="fc" id="L23">      throws DimensionNumericException {</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">    if (maximumWidth &lt; 1) {</span>
+<span class="fc" id="L25">      throw new DimensionNumericException(&quot;The maximum width should be greater than or equal to 1&quot;);</span>
+    } else {
+<span class="fc" id="L27">      this.maximumWidth = maximumWidth;</span>
+    }
+<span class="fc bfc" id="L29" title="All 2 branches covered.">    if (maximumHeight &lt; 1) {</span>
+<span class="fc" id="L30">      throw new DimensionNumericException(</span>
+          &quot;The maximum height should be greater than or equal to 1&quot;);
+    } else {
+<span class="fc" id="L33">      this.maximumHeight = maximumHeight;</span>
+    }
+<span class="fc bfc" id="L35" title="All 2 branches covered.">    if (maximumDepth &lt; 1) {</span>
+<span class="fc" id="L36">      throw new DimensionNumericException(&quot;The maximum depth should be greater than or equal to 1&quot;);</span>
+    } else {
+<span class="fc" id="L38">      this.maximumDepth = maximumDepth;</span>
+    }
+<span class="fc" id="L40">    this.mailItem = null;</span>
+<span class="fc" id="L41">  }</span>
+
+  /**
+   * Getter for maximum width
+   *
+   * @return - maximum width in inches, an integer greater than or equal to 1
+   */
+  public Integer getMaximumWidth() {
+<span class="fc" id="L49">    return this.maximumWidth;</span>
+  }
+
+  /**
+   * Getter for maximum height
+   *
+   * @return - maximum height in inches, an integer greater than or equal to 1
+   */
+  public Integer getMaximumHeight() {
+<span class="fc" id="L58">    return this.maximumHeight;</span>
+  }
+
+  /**
+   * Getter for maximum depth
+   *
+   * @return - maximum depth in inches, an integer greater than or equal to 1
+   */
+  public Integer getMaximumDepth() {
+<span class="fc" id="L67">    return this.maximumDepth;</span>
+  }
+
+  /**
+   * Getter for mail item
+   *
+   * @return - the item stores in the locker, if any, otherwise, return null
+   */
+  public MailItem getMailItem() {
+<span class="fc" id="L76">    return this.mailItem;</span>
+  }
+
+  /**
+   * Consumes a mail item and stores it in a locker with two exceptions: if the locker is occupied
+   * or the mail item exceeds the dimensions of the locker
+   *
+   * @param newMailItem - a mail item to be added to the locker, encoded as a MailItem
+   * @throws OccupiedLockerException   If the locker already contains a mail item
+   * @throws LargerThanLockerException If any single dimension of the mail item is bigger than the
+   *                                   locker
+   */
+  void addMail(MailItem newMailItem) throws OccupiedLockerException, LargerThanLockerException {
+<span class="fc bfc" id="L89" title="All 2 branches covered.">    if (this.mailItem != null) {</span>
+<span class="fc" id="L90">      throw new OccupiedLockerException(&quot;The locker is occupied!&quot;);</span>
+<span class="fc bfc" id="L91" title="All 2 branches covered.">    } else if (newMailItem.getWidth() &gt; this.maximumWidth</span>
+<span class="fc bfc" id="L92" title="All 2 branches covered.">        || newMailItem.getHeight() &gt; this.maximumHeight</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">        || newMailItem.getDepth() &gt; this.maximumDepth) {</span>
+<span class="fc" id="L94">      throw new LargerThanLockerException(&quot;The mail item exceeds the dimensions of the locker!&quot;);</span>
+    } else {
+<span class="fc" id="L96">      this.mailItem = newMailItem;</span>
+    }
+<span class="fc" id="L98">  }</span>
+
+  /**
+   * Takes a recipient and remove and return the mail item from the locker under the following
+   * conditions: there is a mail item in the locker AND the recipient passed to pickupMail matches
+   * the recipient of the mail item
+   *
+   * @param recipient - recipient to pickup mail item in the locker, encoded as a Recipient
+   * @return - mail item
+   * @throws EmptyLockerException         If there is no mail item in the locker
+   * @throws RecipientNotMatchedException If the recipient passed to pickupMail does not match the
+   *                                      recipient of the mail item
+   */
+  MailItem pickupMail(Recipient recipient)
+      throws EmptyLockerException, RecipientNotMatchedException {
+<span class="fc bfc" id="L113" title="All 2 branches covered.">    if (this.mailItem == null) {</span>
+<span class="fc" id="L114">      throw new EmptyLockerException(&quot;There is no mail item in the locker!&quot;);</span>
+<span class="fc bfc" id="L115" title="All 2 branches covered.">    } else if (this.mailItem.getRecipient() != recipient) {</span>
+<span class="fc" id="L116">      throw new RecipientNotMatchedException(</span>
+          &quot;The recipient passed to pickupMail does not match the recipient of the mail item!&quot;);
+    } else {
+<span class="fc" id="L119">      return this.mailItem;</span>
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

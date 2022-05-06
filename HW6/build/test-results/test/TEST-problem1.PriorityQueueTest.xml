@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem1.PriorityQueueTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2022-03-20T05:45:50" hostname="jiangruxuedeMacBook-Pro.local" time="0.074">
+  <properties/>
+  <testcase name="equals()" classname="problem1.PriorityQueueTest" time="0.04"/>
+  <testcase name="testToString()" classname="problem1.PriorityQueueTest" time="0.007"/>
+  <testcase name="add()" classname="problem1.PriorityQueueTest" time="0.001"/>
+  <testcase name="pop()" classname="problem1.PriorityQueueTest" time="0.005"/>
+  <testcase name="peek()" classname="problem1.PriorityQueueTest" time="0.002"/>
+  <testcase name="testHashCode()" classname="problem1.PriorityQueueTest" time="0.003"/>
+  <testcase name="isEmpty()" classname="problem1.PriorityQueueTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

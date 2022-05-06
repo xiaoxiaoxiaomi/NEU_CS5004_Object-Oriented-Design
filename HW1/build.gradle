@@ -1,0 +1,111 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+    id 'pmd'
+}
+
+defaultTasks 'clean', 'build', 'javadoc', 'check', 'test'
+
+apply plugin: 'java'
+
+group 'edu.neu.khoury.ood'
+version '1.0-SNAPSHOT'
+description 'OOD Spring 2022 Seattle'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+jacoco {
+    toolVersion = "0.8.7"
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.2
+            }
+        }
+        rule {
+            enabled = false
+            element = 'CLASS'
+            includes = ['org.gradle.*']
+            limit {
+                counter = 'LINE'
+                value = 'TOTALCOUNT'
+                maximum = 0.3
+            }
+        }
+    }
+}
+
+check.dependsOn jacocoTestCoverageVerification
+
+pmd {
+    consoleOutput = false
+    ignoreFailures = true
+    pmdTest.enabled = false
+    reportsDir = file("${buildDir}/pmd")
+    rulesMinimumPriority = 2
+    ruleSets = ["category/java/errorprone.xml", "category/java/bestpractices.xml"]
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Pmd) {
+    reports {
+        xml.required = false
+        html.required = true
+    }
+    doLast {
+        println "file://${buildDir}/pmd/main.html"
+    }
+}
+
+task doAll {
+    dependsOn clean
+    dependsOn test
+    dependsOn check
+    dependsOn javadoc
+    dependsOn build
+
+    doLast {
+        println 'All tasks were successfully done!'
+    }
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = false
+        csv.required = false
+        html.outputLocation = file("${buildDir}/jacocoHtml")
+    }
+    doLast {
+        println "file://${buildDir}/jacocoHtml/index.html"
+    }
+}
+
+javadoc {
+    doLast {
+        println "file://${buildDir}/docs/javadoc/index.html"
+    }
+}
+
+test {
+    useJUnitPlatform()
+    maxHeapSize = '1G'
+    finalizedBy jacocoTestReport
+}
+

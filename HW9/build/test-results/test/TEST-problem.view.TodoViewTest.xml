@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem.view.TodoViewTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-04-24T19:28:46" hostname="jiangruxuedeMacBook-Pro.local" time="0.088">
+  <properties/>
+  <testcase name="display()" classname="problem.view.TodoViewTest" time="0.088"/>
+  <system-out><![CDATA[id   text                                         completed      due            priority       category       
+1    Finish HW9                                   false          2021-08-02     1              school         
+6    Finish HW10                                  false          2022-04-26     1              school         
+id   text                                         completed      due            priority       category       
+1    Finish HW9                                   false          2021-08-02     1              school         
+6    Finish HW10                                  false          2022-04-26     1              school         
+3    Study for finals                             true           ?              2              school         
+5    Buy yarn for blanket, stuffed toy            true           ?              2              home           
+7    Test                                         true           ?              2              ?              
+2    Mail passport                                false          2021-08-28     3              ?              
+4    Clean the house                              false          2021-08-15     3              home           
+The subset of Todos returns no results.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

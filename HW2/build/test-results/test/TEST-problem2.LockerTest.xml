@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem2.LockerTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2022-02-07T18:40:31" hostname="jiangruxuedeMacBook-Pro.local" time="0.066">
+  <properties/>
+  <testcase name="getMaximumDepth()" classname="problem2.LockerTest" time="0.002"/>
+  <testcase name="getMaximumWidth()" classname="problem2.LockerTest" time="0.002"/>
+  <testcase name="pickupMail_EmptyLockerException()" classname="problem2.LockerTest" time="0.002"/>
+  <testcase name="addMail()" classname="problem2.LockerTest" time="0.004"/>
+  <testcase name="pickupMail()" classname="problem2.LockerTest" time="0.001"/>
+  <testcase name="addMail_LargerThanLockerException()" classname="problem2.LockerTest" time="0.004"/>
+  <testcase name="getMaximumHeight()" classname="problem2.LockerTest" time="0.002"/>
+  <testcase name="testLockerConstructor()" classname="problem2.LockerTest" time="0.005"/>
+  <testcase name="addMail_OccupiedLockerException()" classname="problem2.LockerTest" time="0.001"/>
+  <testcase name="pickupMail_RecipientNotMatchedException()" classname="problem2.LockerTest" time="0.02"/>
+  <testcase name="getMailItem()" classname="problem2.LockerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

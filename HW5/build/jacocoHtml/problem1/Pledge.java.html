@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Pledge.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW5</a> &gt; <a href="index.source.html" class="el_package">problem1</a> &gt; <span class="el_source">Pledge.java</span></div><h1>Pledge.java</h1><pre class="source lang-java linenums">package problem1;
+
+import java.time.DateTimeException;
+import java.time.LocalDateTime;
+import java.util.Objects;
+
+/**
+ * Class Pledge inherits abstract class Donation and stores an amount, the date and time that the
+ * donation was made and a processing date and time.
+ */
+public class Pledge extends Donation {
+
+  private LocalDateTime processingDateTime;
+
+  /**
+   * Constructor for class Pledge
+   *
+   * @param amount           - amount of donation, encoded as Double
+   * @param creationDateTime - date and time that the donation was made, encoded as LocalDateTime
+   */
+  public Pledge(Double amount, LocalDateTime creationDateTime) {
+<span class="fc" id="L22">    super(amount, creationDateTime);</span>
+<span class="fc" id="L23">    this.processingDateTime = null;</span>
+<span class="fc" id="L24">  }</span>
+
+  /**
+   * Constructor for class Pledge
+   *
+   * @param amount             - amount of donation, encoded as Double
+   * @param creationDateTime   - date and time that the donation was made, encoded as LocalDateTime
+   * @param processingDateTime - date and time that the donation will be processed, encoded as
+   *                           LocalDateTime
+   */
+  public Pledge(Double amount, LocalDateTime creationDateTime,
+      LocalDateTime processingDateTime) {
+<span class="fc" id="L36">    super(amount, creationDateTime);</span>
+<span class="fc" id="L37">    this.processingDateTime = processingDateTime;</span>
+<span class="fc" id="L38">  }</span>
+
+  /**
+   * Getter for processing date and time
+   *
+   * @return - date and time that the donation will be processed, encoded as LocalDateTime
+   */
+  public LocalDateTime getProcessingDateTime() {
+<span class="fc" id="L46">    return processingDateTime;</span>
+  }
+
+  /**
+   * Setter for processing date and time
+   *
+   * @param processingDateTime - date and time that the donation will be processed, encoded as
+   *                           LocalDateTime
+   */
+  public void setProcessingDateTime(LocalDateTime processingDateTime) {
+<span class="fc bfc" id="L56" title="All 2 branches covered.">    if (this.creationDateTime.isBefore(processingDateTime)) {</span>
+<span class="fc" id="L57">      this.processingDateTime = processingDateTime;</span>
+    } else {
+<span class="fc" id="L59">      throw new DateTimeException(</span>
+          &quot;The proposed new processing date should not be prior to the creation date and time&quot;);
+    }
+<span class="fc" id="L62">  }</span>
+
+  /**
+   * Remove date and time that the donation will be processed
+   */
+  public void removeProcessingDateTime() {
+<span class="fc" id="L68">    this.processingDateTime = null;</span>
+<span class="fc" id="L69">  }</span>
+
+  /**
+   * Indicates whether some other pledge is &quot;equal to&quot; this one.
+   *
+   * @param o - the reference object with which to compare.
+   * @return true if this object is the same as the obj argument; false otherwise.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L79" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L80">      return true;</span>
+    }
+<span class="fc bfc" id="L82" title="All 4 branches covered.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L83">      return false;</span>
+    }
+<span class="fc bfc" id="L85" title="All 2 branches covered.">    if (!super.equals(o)) {</span>
+<span class="fc" id="L86">      return false;</span>
+    }
+<span class="fc" id="L88">    Pledge pledge = (Pledge) o;</span>
+<span class="fc" id="L89">    return Objects.equals(processingDateTime, pledge.processingDateTime);</span>
+  }
+
+  /**
+   * Returns a hash code value for the object.
+   *
+   * @return a hash code value for this object.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L99">    return Objects.hash(super.hashCode(), processingDateTime);</span>
+  }
+
+  /**
+   * Returns a string representation of the object.
+   *
+   * @return a string representation of the object.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L109">    return &quot;Pledge{&quot; +</span>
+        &quot;processingDateTime=&quot; + processingDateTime +
+        '}';
+  }
+
+  /**
+   * Return the amount of pledge that processed in the given year
+   *
+   * @param year - year, encoded as Integer
+   * @return the amount of pledge that processed in the given year
+   */
+  @Override
+  public Double getTotalForYear(Integer year) {
+<span class="fc bfc" id="L122" title="All 4 branches covered.">    if (this.processingDateTime == null || this.processingDateTime.getYear() != year) {</span>
+<span class="fc" id="L123">      return 0.0;</span>
+    } else {
+<span class="fc" id="L125">      return this.amount;</span>
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

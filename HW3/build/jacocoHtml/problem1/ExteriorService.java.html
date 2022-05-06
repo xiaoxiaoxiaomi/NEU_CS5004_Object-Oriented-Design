@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ExteriorService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW3</a> &gt; <a href="index.source.html" class="el_package">problem1</a> &gt; <span class="el_source">ExteriorService.java</span></div><h1>ExteriorService.java</h1><pre class="source lang-java linenums">package problem1;
+
+/**
+ * Abstract class ExteriorService is inherited from abstract class NonSpecialistService, it inherits
+ * property address, property size, whether the service is carried out monthly and the number of
+ * services previously carried out at the address, estimated hours and discount rate
+ */
+public abstract class ExteriorService extends NonSpecialistService {
+
+  /**
+   * Constructor for the class ExteriorService
+   *
+   * @param propertyAddress      - property address, encoded as String
+   * @param propertySize         - property size, encoded as enum, the size can be small, medium, or
+   *                             large
+   * @param isMonthly            -  whether the service is carried out monthly, encoded as Boolean
+   * @param numberOfPastServices - the number of services previously carried out at the address,
+   *                             encoded as Integer
+   */
+  public ExteriorService(String propertyAddress, PropertySize propertySize,
+      Boolean isMonthly, Integer numberOfPastServices) {
+<span class="fc" id="L22">    super(propertyAddress, propertySize, isMonthly, numberOfPastServices);</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">    if (this.propertySize == PropertySize.SMALL) {</span>
+<span class="fc" id="L24">      this.estimatedHours = SMALL_ESTIMATED_HOUR;</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">    } else if (this.propertySize == PropertySize.MEDIUM) {</span>
+<span class="fc" id="L26">      this.estimatedHours = MEDIUM_ESTIMATED_HOURS;</span>
+    } else {
+<span class="fc" id="L28">      this.estimatedHours = LARGE_ESTIMATED_HOURS;</span>
+    }
+<span class="fc" id="L30">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

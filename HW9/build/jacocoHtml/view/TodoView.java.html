@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TodoView.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW9</a> &gt; <a href="index.source.html" class="el_package">view</a> &gt; <span class="el_source">TodoView.java</span></div><h1>TodoView.java</h1><pre class="source lang-java linenums">package view;
+
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+import model.TodoItem;
+
+<span class="fc" id="L8">public class TodoView {</span>
+
+  public void display(List&lt;TodoItem&gt; todoList, Boolean showIncomplete, String showCategory,
+      String sortRule) {
+<span class="fc" id="L12">    List&lt;TodoItem&gt; filteredTodoList = new ArrayList&lt;&gt;(todoList);</span>
+    // filter incomplete
+<span class="fc bfc" id="L14" title="All 2 branches covered.">    if (showIncomplete) {</span>
+<span class="fc" id="L15">      filteredTodoList.removeIf(TodoItem::getCompleted);</span>
+    }
+    // filter category
+<span class="fc bfc" id="L18" title="All 2 branches covered.">    if (showCategory != null) {</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">      filteredTodoList.removeIf(todoItem -&gt; !Objects.equals(todoItem.getCategory(), showCategory));</span>
+    }
+    // sort by date
+<span class="fc bfc" id="L22" title="All 2 branches covered.">    if (Objects.equals(sortRule, &quot;date&quot;)) {</span>
+      // o2.getDue().compareTo(o1.getDue())
+<span class="fc" id="L24">      filteredTodoList.sort(</span>
+<span class="fc" id="L25">          (o1, o2) -&gt; Comparator.nullsLast(Date::compareTo).compare(o1.getDue(), o2.getDue()));</span>
+    }
+    // sort by priority
+<span class="fc bfc" id="L28" title="All 2 branches covered.">    if (Objects.equals(sortRule, &quot;priority&quot;)) {</span>
+<span class="fc" id="L29">      filteredTodoList.sort((o1, o2) -&gt; o1.getPriority().compareTo(o2.getPriority()));</span>
+    }
+    // break if the user attempts to display a subset of Todos that returns no results
+<span class="fc bfc" id="L32" title="All 2 branches covered.">    if (filteredTodoList.size() == 0) {</span>
+<span class="fc" id="L33">      System.out.println(&quot;The subset of Todos returns no results.&quot;);</span>
+<span class="fc" id="L34">      return;</span>
+    }
+    // convert fields of todoItem to string
+<span class="fc" id="L37">    List&lt;String[]&gt; stringTodoList = this.formatTodo(filteredTodoList);</span>
+    // display
+<span class="fc bfc" id="L39" title="All 2 branches covered.">    for (String[] row : stringTodoList) {</span>
+<span class="fc" id="L40">      System.out.format(&quot;%-5s%-45s%-15s%-15s%-15s%-15s\n&quot;, (Object[]) row);</span>
+<span class="fc" id="L41">    }</span>
+<span class="fc" id="L42">  }</span>
+
+  private List&lt;String[]&gt; formatTodo(List&lt;TodoItem&gt; filteredTodoList) {
+<span class="fc" id="L45">    List&lt;String[]&gt; stringTodoList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L46">    String[] header = new String[]{&quot;id&quot;, &quot;text&quot;, &quot;completed&quot;, &quot;due&quot;, &quot;priority&quot;, &quot;category&quot;};</span>
+<span class="fc" id="L47">    stringTodoList.add(header);</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">    for (TodoItem todoItem : filteredTodoList) {</span>
+<span class="fc" id="L49">      String[] str = new String[header.length];</span>
+      // id
+<span class="fc" id="L51">      str[0] = String.valueOf(todoItem.getId());</span>
+      // text
+<span class="fc" id="L53">      str[1] = todoItem.getText();</span>
+      // completed
+<span class="fc bfc" id="L55" title="All 2 branches covered.">      str[2] = todoItem.getCompleted() ? &quot;true&quot; : &quot;false&quot;;</span>
+      // due
+<span class="fc bfc" id="L57" title="All 2 branches covered.">      str[3] = todoItem.getDue() == null ? &quot;?&quot; :</span>
+<span class="fc" id="L58">          new SimpleDateFormat(&quot;yyyy-MM-dd&quot;).format(todoItem.getDue());</span>
+      // priority
+<span class="fc" id="L60">      str[4] = String.valueOf(todoItem.getPriority());</span>
+      // category
+<span class="fc bfc" id="L62" title="All 2 branches covered.">      str[5] = todoItem.getCategory() == null ? &quot;?&quot; : todoItem.getCategory();</span>
+<span class="fc" id="L63">      stringTodoList.add(str);</span>
+<span class="fc" id="L64">    }</span>
+<span class="fc" id="L65">    return stringTodoList;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

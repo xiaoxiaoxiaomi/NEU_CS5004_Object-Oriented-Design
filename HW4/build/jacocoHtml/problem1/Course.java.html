@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Course.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW4</a> &gt; <a href="index.source.html" class="el_package">problem1</a> &gt; <span class="el_source">Course.java</span></div><h1>Course.java</h1><pre class="source lang-java linenums">package problem1;
+
+import java.util.Objects;
+
+/**
+ * Class Course stores information about Course - name, prefix and number
+ */
+public class Course {
+
+  private final String name;
+  private final String prefix;
+  private final int number;
+
+  /**
+   * Constructor for the class Course
+   *
+   * @param name   - name, encoded as String
+   * @param prefix - prefix, encoded as String
+   * @param number - number, encoded as int
+   */
+<span class="fc" id="L21">  public Course(String name, String prefix, int number) {</span>
+<span class="fc" id="L22">    this.name = name;</span>
+<span class="fc" id="L23">    this.prefix = prefix;</span>
+<span class="fc" id="L24">    this.number = number;</span>
+<span class="fc" id="L25">  }</span>
+
+  /**
+   * Indicates whether some other object is &quot;equal to&quot; this one.
+   *
+   * @param o - the reference object with which to compare.
+   * @return true if this object is the same as the obj argument; false otherwise.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L35" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L36">      return true;</span>
+    }
+<span class="fc bfc" id="L38" title="All 4 branches covered.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L39">      return false;</span>
+    }
+<span class="fc" id="L41">    Course course = (Course) o;</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">    return number == course.number &amp;&amp;</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        name.equals(course.name) &amp;&amp;</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        prefix.equals(course.prefix);</span>
+  }
+
+  /**
+   * Returns a hash code value for the object.
+   *
+   * @return a hash code value for this object.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L54">    return Objects.hash(name, prefix, number);</span>
+  }
+
+  /**
+   * Returns a string representation of the object.
+   *
+   * @return a string representation of the object.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L64">    return prefix + number + &quot;: &quot; + name;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

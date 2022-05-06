@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem.FieldTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2022-03-29T23:19:56" hostname="jiangruxuedeMacBook-Pro.local" time="0.024">
+  <properties/>
+  <testcase name="getValidator()" classname="problem.FieldTest" time="0.003"/>
+  <testcase name="testToString()" classname="problem.FieldTest" time="0.001"/>
+  <testcase name="isFilled()" classname="problem.FieldTest" time="0.001"/>
+  <testcase name="updateValue()" classname="problem.FieldTest" time="0.001"/>
+  <testcase name="testHashCode()" classname="problem.FieldTest" time="0.001"/>
+  <testcase name="testEquals()" classname="problem.FieldTest" time="0.001"/>
+  <testcase name="getRequired()" classname="problem.FieldTest" time="0.01"/>
+  <testcase name="getLabel()" classname="problem.FieldTest" time="0.001"/>
+  <testcase name="getValue()" classname="problem.FieldTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

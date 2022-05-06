@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NationalPark.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Midterm</a> &gt; <a href="index.source.html" class="el_package">midterm.p2</a> &gt; <span class="el_source">NationalPark.java</span></div><h1>NationalPark.java</h1><pre class="source lang-java linenums">package midterm.p2;
+
+import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.Objects;
+
+/*
+Class NationalPark contain information about an individual US national park
+ */
+public class NationalPark {
+
+  private String nationalParkID;
+  private String nationalParkName;
+  private String state;
+  private Double area;
+  private LocalDate dateParkFounded;
+  private String[] visitorCenters;
+  private Boolean openYearRound;
+
+  public NationalPark(String nationalParkID, String nationalParkName, String state, Double area,
+<span class="fc" id="L21">                      LocalDate dateParkFounded, String[] visitorCenters, Boolean openYearRound) {</span>
+<span class="fc" id="L22">    this.nationalParkID = nationalParkID;</span>
+<span class="fc" id="L23">    this.nationalParkName = nationalParkName;</span>
+<span class="fc" id="L24">    this.state = state;</span>
+<span class="fc" id="L25">    this.area = area;</span>
+<span class="fc" id="L26">    this.dateParkFounded = dateParkFounded;</span>
+<span class="fc" id="L27">    this.visitorCenters = visitorCenters;</span>
+<span class="fc" id="L28">    this.openYearRound = openYearRound;</span>
+<span class="fc" id="L29">  }</span>
+
+  public String getNationalParkID() {
+<span class="fc" id="L32">    return nationalParkID;</span>
+  }
+
+  public String getNationalParkName() {
+<span class="nc" id="L36">    return nationalParkName;</span>
+  }
+
+  public String getState() {
+<span class="nc" id="L40">    return state;</span>
+  }
+
+  public Double getArea() {
+<span class="nc" id="L44">    return area;</span>
+  }
+
+  public LocalDate getDateParkFounded() {
+<span class="nc" id="L48">    return dateParkFounded;</span>
+  }
+
+  public String[] getVisitorCenters() {
+<span class="nc" id="L52">    return visitorCenters;</span>
+  }
+
+  public Boolean getOpenYearRound() {
+<span class="fc" id="L56">    return openYearRound;</span>
+  }
+
+  public void setArea(Double area) {
+<span class="nc" id="L60">    this.area = area;</span>
+<span class="nc" id="L61">  }</span>
+
+  public void setVisitorCenters(String[] visitorCenters) {
+<span class="nc" id="L64">    this.visitorCenters = visitorCenters;</span>
+<span class="nc" id="L65">  }</span>
+
+  @Override
+  public boolean equals(Object o) {
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">    if (this == o) return true;</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">    if (!(o instanceof NationalPark)) return false;</span>
+<span class="nc" id="L71">    NationalPark that = (NationalPark) o;</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">    return Objects.equals(getNationalParkID(), that.getNationalParkID()) &amp;&amp;</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">        Objects.equals(getNationalParkName(), that.getNationalParkName()) &amp;&amp;</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">        Objects.equals(getState(), that.getState()) &amp;&amp;</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">        Objects.equals(getArea(), that.getArea()) &amp;&amp;</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">        Objects.equals(getDateParkFounded(), that.getDateParkFounded()) &amp;&amp;</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        Arrays.equals(getVisitorCenters(), that.getVisitorCenters()) &amp;&amp;</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">        Objects.equals(getOpenYearRound(), that.getOpenYearRound());</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="nc" id="L83">    int result = Objects.hash(getNationalParkID(), getNationalParkName(),</span>
+<span class="nc" id="L84">        getState(), getArea(), getDateParkFounded(), getOpenYearRound());</span>
+<span class="nc" id="L85">    result = 31 * result + Arrays.hashCode(getVisitorCenters());</span>
+<span class="nc" id="L86">    return result;</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="nc" id="L91">    return &quot;NationalPark{&quot; +</span>
+        &quot;nationalParkID='&quot; + nationalParkID + '\'' +
+        &quot;, nationalParkName='&quot; + nationalParkName + '\'' +
+        &quot;, state='&quot; + state + '\'' +
+        &quot;, area=&quot; + area +
+        &quot;, dateParkFounded=&quot; + dateParkFounded +
+<span class="nc" id="L97">        &quot;, visitorCenters=&quot; + Arrays.toString(visitorCenters) +</span>
+        &quot;, openYearRound=&quot; + openYearRound +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Author.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW5</a> &gt; <a href="index.source.html" class="el_package">problem2</a> &gt; <span class="el_source">Author.java</span></div><h1>Author.java</h1><pre class="source lang-java linenums">package problem2;
+
+/**
+ * Class Author inherits Individual and stores first name and last name
+ */
+public class Author extends Individual {
+
+  /**
+   * Constructor for class Author
+   *
+   * @param firstName - first name, encoded as String
+   * @param lastName  - last name, encoded as String
+   */
+  public Author(String firstName, String lastName) {
+<span class="fc" id="L15">    super(firstName, lastName);</span>
+<span class="fc" id="L16">  }</span>
+
+  /**
+   * It will always return false because Author won't be artist
+   * @param artist - artist, encoded as RecordingArtist
+   * @return false
+   */
+  @Override
+  public Boolean containsArtist(RecordingArtist artist) {
+<span class="fc" id="L25">    return false;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

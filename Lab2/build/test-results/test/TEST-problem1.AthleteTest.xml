@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem1.AthleteTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2022-02-02T23:06:06" hostname="jiangruxuedeMacBook-Pro.local" time="0.094">
+  <properties/>
+  <testcase name="testEquals_DifferentAthleteName()" classname="problem1.AthleteTest" time="0.054"/>
+  <testcase name="testEquals_NullObject()" classname="problem1.AthleteTest" time="0.002"/>
+  <testcase name="testEquals_SameMemoryLocation()" classname="problem1.AthleteTest" time="0.003"/>
+  <testcase name="testToString()" classname="problem1.AthleteTest" time="0.012"/>
+  <testcase name="testEquals_DifferentHeight()" classname="problem1.AthleteTest" time="0.002"/>
+  <testcase name="testEquals_DifferentLeague()" classname="problem1.AthleteTest" time="0.001"/>
+  <testcase name="getHeight()" classname="problem1.AthleteTest" time="0.0"/>
+  <testcase name="testEquals_DifferentWeight()" classname="problem1.AthleteTest" time="0.001"/>
+  <testcase name="getLeague()" classname="problem1.AthleteTest" time="0.002"/>
+  <testcase name="testHashCode()" classname="problem1.AthleteTest" time="0.001"/>
+  <testcase name="getAthletesName()" classname="problem1.AthleteTest" time="0.001"/>
+  <testcase name="getWeight()" classname="problem1.AthleteTest" time="0.001"/>
+  <testcase name="testEquals_SameFieldsOverall()" classname="problem1.AthleteTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

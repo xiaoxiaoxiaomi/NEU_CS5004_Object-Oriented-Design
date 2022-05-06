@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Video.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Midterm</a> &gt; <a href="index.source.html" class="el_package">midterm.p1</a> &gt; <span class="el_source">Video.java</span></div><h1>Video.java</h1><pre class="source lang-java linenums">package midterm.p1;
+
+public class Video extends NFT {
+
+<span class="nc" id="L5">  private static final Integer VIDEO_NFT_AUCTION_THRESHOLD = 7;</span>
+<span class="nc" id="L6">  private static final Double VIDEO_NFT_AUCTION_FACTOR = 0.8;</span>
+
+  public Video(String name, Name[] creatorNames, Name[] ownerNames, Double latestAskingPrice,
+      String ethereumAndOrBitcoinStandard) {
+<span class="nc" id="L10">    super(name, creatorNames, ownerNames, latestAskingPrice, ethereumAndOrBitcoinStandard);</span>
+<span class="nc" id="L11">  }</span>
+
+  private Double getVideoNftAuctionFactor() {
+<span class="nc bnc" id="L14" title="All 2 branches missed.">    if (this.numberOfDaysForAuction &gt; VIDEO_NFT_AUCTION_THRESHOLD) {</span>
+<span class="nc" id="L15">      return VIDEO_NFT_AUCTION_FACTOR;</span>
+    }
+<span class="nc" id="L17">    return 1.0;</span>
+  }
+
+  @Override
+  public Double calculateStartingBid() {
+<span class="nc" id="L22">    return super.calculateStartingBid() * getVideoNftAuctionFactor();</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

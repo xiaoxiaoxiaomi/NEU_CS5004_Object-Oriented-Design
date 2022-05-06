@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Processor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW8</a> &gt; <a href="index.source.html" class="el_package">problem</a> &gt; <span class="el_source">Processor.java</span></div><h1>Processor.java</h1><pre class="source lang-java linenums">package problem;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
+/**
+ * Generate an output file per row in the csv lines from template, with all placeholders replaced
+ * with the appropriate value for that row.
+ */
+public class Processor {
+
+<span class="fc" id="L15">  private List&lt;String&gt; outputFiles = new ArrayList&lt;&gt;();</span>
+
+  /**
+   * Constructor for the Processor class.
+   *
+   * @param csvLines     - all lines in csv, as String List
+   * @param template     - template, as String
+   * @param placeholders - placeholders in the template, as String List
+   */
+<span class="fc" id="L24">  public Processor(List&lt;String&gt; csvLines, String template, List&lt;String&gt; placeholders) {</span>
+<span class="fc" id="L25">    this.processInput(csvLines, template, placeholders);</span>
+<span class="fc" id="L26">  }</span>
+
+  /**
+   * Generate an output file per row in the csv lines from template, with all placeholders replaced
+   * with the appropriate value for that row.
+   *
+   * @param csvLines     - all lines in csv, as String List
+   * @param template     - template, as String
+   * @param placeholders - placeholders in the template, as String List
+   */
+  private void processInput(List&lt;String&gt; csvLines, String template, List&lt;String&gt; placeholders) {
+    // get the headers for each column
+<span class="fc" id="L38">    String[] csvHeader = csvLines.get(0).split(&quot;\&quot;*,*\&quot;&quot;);</span>
+    // construct a map with placeholder as key and the corresponding column index as value
+<span class="fc" id="L40">    Map&lt;String, Integer&gt; columnMap = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">    for (String placeholder : placeholders) {</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">      for (int j = 0; j &lt; csvHeader.length; j++) {</span>
+        // match placeholder with header and get the column index
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        if (placeholder.equals(csvHeader[j])) {</span>
+<span class="fc" id="L45">          columnMap.put(placeholder, j);</span>
+        }
+      }
+<span class="fc" id="L48">    }</span>
+    // for each csv line
+<span class="fc bfc" id="L50" title="All 2 branches covered.">    for (int i = 1; i &lt; csvLines.size(); i++) {</span>
+<span class="fc" id="L51">      String a = csvLines.get(i);</span>
+<span class="fc" id="L52">      String[] array = a.split(&quot;\&quot;*,*\&quot;&quot;);</span>
+      // initialize the output file as template
+<span class="fc" id="L54">      String outputFile = template;</span>
+      // for each placeholder
+<span class="fc bfc" id="L56" title="All 2 branches covered.">      for (String placeholder : placeholders) {</span>
+<span class="fc" id="L57">        String regularExp = &quot;\\[\\[&quot; + placeholder + &quot;\\]\\]&quot;;</span>
+<span class="fc" id="L58">        Integer colIdx = columnMap.get(placeholder);</span>
+        // replace the placeholder with corresponding column value
+<span class="fc" id="L60">        outputFile = outputFile.replaceAll(regularExp, array[colIdx]);</span>
+<span class="fc" id="L61">      }</span>
+<span class="fc" id="L62">      this.outputFiles.add(outputFile);</span>
+    }
+<span class="fc" id="L64">  }</span>
+
+  /**
+   * Getter for output files
+   *
+   * @return output files, as String List
+   */
+  public List&lt;String&gt; getOutputFiles() {
+<span class="fc" id="L72">    return outputFiles;</span>
+  }
+
+  /**
+   * Indicates whether some other object is &quot;equal to&quot; this one.
+   *
+   * @param o - the reference object with which to compare.
+   * @return true if this object is the same as the obj argument; false otherwise.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L83" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L84">      return true;</span>
+    }
+<span class="fc bfc" id="L86" title="All 4 branches covered.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L87">      return false;</span>
+    }
+<span class="fc" id="L89">    Processor processor = (Processor) o;</span>
+<span class="fc" id="L90">    return Objects.equals(outputFiles, processor.outputFiles);</span>
+  }
+
+  /**
+   * Returns a hash code value for the object.
+   *
+   * @return a hash code value for this object.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L100">    return Objects.hash(outputFiles);</span>
+  }
+
+  /**
+   * Returns a string representation of the object.
+   *
+   * @return a string representation of the object.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L110">    return &quot;Processor{&quot; +</span>
+        &quot;outputFiles=&quot; + outputFiles +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem.controller.CommandLineParserTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2022-04-24T19:28:45" hostname="jiangruxuedeMacBook-Pro.local" time="0.174">
+  <properties/>
+  <testcase name="getDisplay()" classname="problem.controller.CommandLineParserTest" time="0.041"/>
+  <testcase name="getNewTodo()" classname="problem.controller.CommandLineParserTest" time="0.007"/>
+  <testcase name="testToString()" classname="problem.controller.CommandLineParserTest" time="0.012"/>
+  <testcase name="getSortRule()" classname="problem.controller.CommandLineParserTest" time="0.016"/>
+  <testcase name="getShowIncomplete()" classname="problem.controller.CommandLineParserTest" time="0.003"/>
+  <testcase name="getShowCategory()" classname="problem.controller.CommandLineParserTest" time="0.006"/>
+  <testcase name="testHashCode()" classname="problem.controller.CommandLineParserTest" time="0.005"/>
+  <testcase name="getCompleteTodoList()" classname="problem.controller.CommandLineParserTest" time="0.004"/>
+  <testcase name="testInvalidArgument()" classname="problem.controller.CommandLineParserTest" time="0.037"/>
+  <testcase name="testEquals()" classname="problem.controller.CommandLineParserTest" time="0.005"/>
+  <testcase name="getCsvFile()" classname="problem.controller.CommandLineParserTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

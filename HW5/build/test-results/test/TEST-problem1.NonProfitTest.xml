@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem1.NonProfitTest" tests="22" skipped="0" failures="0" errors="0" timestamp="2022-03-07T23:35:05" hostname="jiangruxuedeMacBook-Pro.local" time="0.295">
+  <properties/>
+  <testcase name="setCancellationDateTime()" classname="problem1.NonProfitTest" time="0.075"/>
+  <testcase name="getDonationList()" classname="problem1.NonProfitTest" time="0.002"/>
+  <testcase name="testEquals_DifferentCancellationDateTime()" classname="problem1.NonProfitTest" time="0.002"/>
+  <testcase name="testEquals_DifferentCreationDateTime()" classname="problem1.NonProfitTest" time="0.001"/>
+  <testcase name="testEquals_NullObject()" classname="problem1.NonProfitTest" time="0.001"/>
+  <testcase name="testToString()" classname="problem1.NonProfitTest" time="0.008"/>
+  <testcase name="testEquals_SameObject()" classname="problem1.NonProfitTest" time="0.002"/>
+  <testcase name="removeProcessingDateTime()" classname="problem1.NonProfitTest" time="0.001"/>
+  <testcase name="testEquals_DifferentOrganizationName()" classname="problem1.NonProfitTest" time="0.133"/>
+  <testcase name="setProcessingDateTime()" classname="problem1.NonProfitTest" time="0.002"/>
+  <testcase name="testEquals_DifferentAmount()" classname="problem1.NonProfitTest" time="0.003"/>
+  <testcase name="getCreationDateTime()" classname="problem1.NonProfitTest" time="0.001"/>
+  <testcase name="testEquals_DifferentProcessingTime()" classname="problem1.NonProfitTest" time="0.004"/>
+  <testcase name="getCancellationDateTime()" classname="problem1.NonProfitTest" time="0.002"/>
+  <testcase name="getAmount()" classname="problem1.NonProfitTest" time="0.003"/>
+  <testcase name="testEquals_DifferentObject()" classname="problem1.NonProfitTest" time="0.005"/>
+  <testcase name="testHashCode()" classname="problem1.NonProfitTest" time="0.003"/>
+  <testcase name="getOrganizationName()" classname="problem1.NonProfitTest" time="0.001"/>
+  <testcase name="getTotalDonationsForYear()" classname="problem1.NonProfitTest" time="0.003"/>
+  <testcase name="testEquals_SameFieldsOverall()" classname="problem1.NonProfitTest" time="0.002"/>
+  <testcase name="getProcessingDateTime()" classname="problem1.NonProfitTest" time="0.001"/>
+  <testcase name="testEquals_DifferentDonationList()" classname="problem1.NonProfitTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

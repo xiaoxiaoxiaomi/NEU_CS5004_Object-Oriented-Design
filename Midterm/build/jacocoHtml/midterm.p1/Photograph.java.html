@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Photograph.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Midterm</a> &gt; <a href="index.source.html" class="el_package">midterm.p1</a> &gt; <span class="el_source">Photograph.java</span></div><h1>Photograph.java</h1><pre class="source lang-java linenums">package midterm.p1;
+
+public abstract class Photograph extends PaintingAndPhoto {
+
+<span class="nc" id="L5">  private static final Double CANON_EOS_R5_FACTOR = 1.35;</span>
+  protected String makeOfCamera;
+  protected String model;
+
+  public Photograph(String name, Name[] creatorNames, Name[] ownerNames,
+      Double latestAskingPrice, Double[] widthAndHeight, String makeOfCamera, String model) {
+<span class="nc" id="L11">    super(name, creatorNames, ownerNames, latestAskingPrice, widthAndHeight);</span>
+<span class="nc" id="L12">    this.makeOfCamera = makeOfCamera;</span>
+<span class="nc" id="L13">    this.model = model;</span>
+<span class="nc" id="L14">  }</span>
+
+  private Double getCanonEosR5Factor() {
+<span class="nc bnc" id="L17" title="All 4 branches missed.">    if (this.model == &quot;Canon&quot; &amp;&amp; this.makeOfCamera == &quot;EOS R5&quot;) {</span>
+<span class="nc" id="L18">      return CANON_EOS_R5_FACTOR;</span>
+    }
+<span class="nc" id="L20">    return 1.0;</span>
+  }
+
+  @Override
+  public Double calculateStartingBid() {
+<span class="nc" id="L25">    return super.calculateStartingBid() * getCanonEosR5Factor();</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

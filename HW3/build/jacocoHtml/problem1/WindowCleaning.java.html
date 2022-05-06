@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>WindowCleaning.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW3</a> &gt; <a href="index.source.html" class="el_package">problem1</a> &gt; <span class="el_source">WindowCleaning.java</span></div><h1>WindowCleaning.java</h1><pre class="source lang-java linenums">package problem1;
+
+import java.util.Objects;
+
+/**
+ * Class Gardening is inherited from abstract class ExteriorService, it inherits property address,
+ * property size, whether the service is carried out monthly, the number of services previously
+ * carried out at the address, estimated hours and discount rate, and it stores number of floors.
+ */
+public class WindowCleaning extends ExteriorService {
+
+  private Integer numberOfFloors;
+
+<span class="fc" id="L14">  private static final Integer MAX_NUMBER_OF_FLOORS = 3;</span>
+<span class="fc" id="L15">  private static final Double MORE_FLOOR_FEE_RATE = 0.05;</span>
+
+  /**
+   * Constructor for class WindowCleaning
+   *
+   * @param propertyAddress      - property address, encoded as String
+   * @param propertySize         - property size, encoded as enum, the size can be small, medium, or
+   *                             large
+   * @param isMonthly            -  whether the service is carried out monthly, encoded as Boolean
+   * @param numberOfPastServices - the number of services previously carried out at the address,
+   *                             encoded as Integer
+   * @param numberOfFloors       - number of floors, encoded as Integer
+   * @throws FloorsExceedException      On 4 or more floors
+   * @throws FloorsNonPositiveException On non-positive floors
+   */
+  public WindowCleaning(String propertyAddress, PropertySize propertySize,
+      Boolean isMonthly, Integer numberOfPastServices, Integer numberOfFloors)
+      throws FloorsExceedException, FloorsNonPositiveException {
+<span class="fc" id="L33">    super(propertyAddress, propertySize, isMonthly, numberOfPastServices);</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">    if (numberOfFloors &gt; MAX_NUMBER_OF_FLOORS) {</span>
+<span class="fc" id="L35">      throw new FloorsExceedException(</span>
+          &quot;It should not be possible to create a window cleaning service for a property with more than 3 floors.&quot;);
+    }
+<span class="fc bfc" id="L38" title="All 2 branches covered.">    if (numberOfFloors &lt;= 0) {</span>
+<span class="fc" id="L39">      throw new FloorsNonPositiveException(</span>
+          &quot;It should not be possible to create a window cleaning service for a property with non-positive floors.&quot;);
+    }
+<span class="fc" id="L42">    this.numberOfFloors = numberOfFloors;</span>
+<span class="fc" id="L43">  }</span>
+
+  /**
+   * Getter for number of floors
+   *
+   * @return number of floors, encoded as Integer
+   */
+  public Integer getNumberOfFloors() {
+<span class="fc" id="L51">    return numberOfFloors;</span>
+  }
+
+  /**
+   * Indicates whether some other object is &quot;equal to&quot; this one.
+   *
+   * @param o the reference object with which to compare.
+   * @return true if this object is the same as the obj argument; false otherwise.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L62" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L63">      return true;</span>
+    }
+<span class="fc bfc" id="L65" title="All 4 branches covered.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L66">      return false;</span>
+    }
+<span class="fc bfc" id="L68" title="All 2 branches covered.">    if (!super.equals(o)) {</span>
+<span class="fc" id="L69">      return false;</span>
+    }
+<span class="fc" id="L71">    WindowCleaning that = (WindowCleaning) o;</span>
+<span class="fc" id="L72">    return numberOfFloors.equals(that.numberOfFloors);</span>
+  }
+
+  /**
+   * Returns a hash code value for the object.
+   *
+   * @return a hash code value for this object.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L82">    return Objects.hash(super.hashCode(), numberOfFloors);</span>
+  }
+
+  /**
+   * Returns a string representation of the object.
+   *
+   * @return a string representation of the object.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L92">    return &quot;WindowCleaning{&quot; +</span>
+        &quot;numberOfFloors=&quot; + numberOfFloors +
+        '}';
+  }
+
+  /**
+   * Calculate price for Window Cleaning
+   *
+   * @return price for Window Cleaning, as double
+   */
+  @Override
+  public double calculatePrice() {
+<span class="fc bfc" id="L104" title="All 2 branches covered.">    if (this.numberOfFloors &gt; 1) {</span>
+<span class="fc" id="L105">      return NonSpecialistService.BASE_RATE * this.estimatedHours * (1 + this.MORE_FLOOR_FEE_RATE)</span>
+<span class="fc" id="L106">          * (1 - this.discountRate);</span>
+    } else {
+<span class="fc" id="L108">      return NonSpecialistService.BASE_RATE * this.estimatedHours * (1 - this.discountRate);</span>
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

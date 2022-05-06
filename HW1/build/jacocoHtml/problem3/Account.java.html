@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Account.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW1</a> &gt; <a href="index.source.html" class="el_package">problem3</a> &gt; <span class="el_source">Account.java</span></div><h1>Account.java</h1><pre class="source lang-java linenums">package problem3;
+
+public class Account {
+    private static final double CONVERSION_RATE = 0.000025;
+    private final Identifier identifier;
+    private final Amount amount;
+
+    /**
+     * Constructor, creating a new Account object, with the provided
+     user identifier and amount
+     * @param identifier - identifier, encoded as Identifier
+     * @param amount - amount, encoded as Amount
+     */
+<span class="fc" id="L14">    public Account(Identifier identifier, Amount amount) {</span>
+<span class="fc" id="L15">        this.identifier = identifier;</span>
+<span class="fc" id="L16">        this.amount = amount;</span>
+<span class="fc" id="L17">    }</span>
+
+    /**
+     * Returns the identifier
+     * @return the identifier
+     */
+    public Identifier getIdentifier() {
+<span class="fc" id="L24">        return identifier;</span>
+    }
+
+    /**
+     * Returns the amount
+     * @return the amount
+     */
+    public Amount getAmount() {
+<span class="fc" id="L32">        return amount;</span>
+    }
+
+    /**
+     * Handles a deposit event, in which money is added to the account balance
+     * @param depositAmount - amount of money to be added to the account balance
+     * @return a new account object with an increased account balance
+     */
+    public Account deposit(Amount depositAmount) {
+<span class="fc" id="L41">        Amount resultAmount = new Amount(0, 0);</span>
+<span class="fc" id="L42">        resultAmount.setCentAmount((amount.getCentAmount() + depositAmount.getCentAmount()) % 100);</span>
+<span class="fc" id="L43">        resultAmount.setDollarAmount(amount.getDollarAmount() + depositAmount.getDollarAmount() + (amount.getCentAmount() + depositAmount.getCentAmount()) / 100);</span>
+<span class="fc" id="L44">        return new Account(identifier, resultAmount);</span>
+    }
+
+    /**
+     * Handles a withdrawal event, in which money is withdrawn from the account
+     * @param withdrawAmount - amount of money to be withdrawn from the account
+     * @return a new account object with the balance decreased
+     */
+    public Account withdraw(Amount withdrawAmount) {
+<span class="fc" id="L53">        Amount resultAmount = new Amount(0, 0);</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        if (withdrawAmount.getCentAmount() &gt; 99) {</span>
+<span class="fc" id="L55">            withdrawAmount.setDollarAmount(withdrawAmount.getDollarAmount() + withdrawAmount.getCentAmount() / 100);</span>
+<span class="fc" id="L56">            withdrawAmount.setCentAmount(withdrawAmount.getCentAmount() % 100);</span>
+        }
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        if (amount.getCentAmount() &lt; withdrawAmount.getCentAmount()) {</span>
+<span class="fc" id="L59">            resultAmount.setCentAmount(amount.getCentAmount() + 100 - withdrawAmount.getCentAmount());</span>
+<span class="fc" id="L60">            resultAmount.setDollarAmount(amount.getDollarAmount() - withdrawAmount.getDollarAmount() - 1);</span>
+        } else {
+<span class="fc" id="L62">            resultAmount.setCentAmount(amount.getCentAmount() - withdrawAmount.getCentAmount());</span>
+<span class="fc" id="L63">            resultAmount.setDollarAmount(amount.getDollarAmount() - withdrawAmount.getDollarAmount());</span>
+        }
+<span class="fc" id="L65">        return new Account(identifier, resultAmount);</span>
+    }
+
+    /**
+     * Handles a conversion from the US dollar amount into Bitcoins (BTC)
+     * @param convertAmount - amount of money to be converted
+     * @return a new Double object, representing the value of the given amount in Bitcoins
+     */
+    public Double convert(Amount convertAmount) {
+<span class="fc" id="L74">        return CONVERSION_RATE * (convertAmount.getDollarAmount() + 0.01 * convertAmount.getCentAmount());</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

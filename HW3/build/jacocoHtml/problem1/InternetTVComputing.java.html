@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InternetTVComputing.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW3</a> &gt; <a href="index.source.html" class="el_package">problem1</a> &gt; <span class="el_source">InternetTVComputing.java</span></div><h1>InternetTVComputing.java</h1><pre class="source lang-java linenums">package problem1;
+
+/**
+ * Class InternetTVComputing is inherited from abstract class SpecialistService, it inherits
+ * property address, property size, whether the service is carried out monthly and the number of
+ * services previously carried out at the address, number of employees and if the work to be done is
+ * complex
+ */
+public class InternetTVComputing extends SpecialistService {
+
+<span class="fc" id="L11">  private static final Integer INTERNET_TV_COMPUTING_MAX_EMPLOYEE = 2;</span>
+<span class="fc" id="L12">  private static final Double ELECTRONIC_WASTE_RECYCLING_FEE = 15.0;</span>
+
+  /**
+   * Constructor for class InternetTVComputing
+   *
+   * @param propertyAddress      - property address, encoded as String
+   * @param propertySize         - property size, encoded as enum, the size can be small, medium, or
+   *                             large
+   * @param isMonthly            -  whether the service is carried out monthly, encoded as Boolean
+   * @param numberOfPastServices - the number of services previously carried out at the address,
+   *                             encoded as Integer
+   * @param numberOfEmployees    - number of employees, encoded as Integer
+   * @param ifComplex            - whether the work is complex, encoded as Boolean
+   * @throws EmployeesExceedException On 3 or more employees
+   */
+  public InternetTVComputing(String propertyAddress, PropertySize propertySize,
+      Boolean isMonthly, Integer numberOfPastServices, Integer numberOfEmployees,
+      Boolean ifComplex) throws EmployeesExceedException {
+<span class="fc" id="L30">    super(propertyAddress, propertySize, isMonthly, numberOfPastServices, numberOfEmployees,</span>
+        ifComplex);
+<span class="fc bfc" id="L32" title="All 2 branches covered.">    if (numberOfEmployees &gt; INTERNET_TV_COMPUTING_MAX_EMPLOYEE) {</span>
+<span class="fc" id="L33">      throw new EmployeesExceedException(</span>
+          &quot;It should not be possible to create a service if more than 2 licensed employees are required.&quot;);
+    }
+<span class="fc" id="L36">  }</span>
+
+  /**
+   * Calculate price for InternetTVComputing
+   *
+   * @return price for InternetTVComputing
+   */
+  @Override
+  public double calculatePrice() {
+<span class="fc" id="L45">    return SpecialistService.SPECIALIST_BASE_RATE * this.numberOfEmployees</span>
+<span class="fc" id="L46">        + this.ELECTRONIC_WASTE_RECYCLING_FEE;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
